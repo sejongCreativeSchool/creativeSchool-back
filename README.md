@@ -1,5 +1,5 @@
-# 세종대학교 창의학기제 서버 개발
-
+# 세종대학교 창의학기제 서버
+---------------------
 ## Live Demo
 [demo server link](http://www.booreum.com)
 
