@@ -9,3 +9,5 @@
 [Week1 :: NodeJS란 무엇인가](https://github.com/sejongCreativeSchool/creativeSchool-back/blob/master/week1/README.md)
 
 [Week2 :: 견고한 NodeJS 설계방식과 크롤러](https://github.com/sejongCreativeSchool/creativeSchool-back/blob/master/week2/README.md)
+
+[Week3 :: 책관리 서버 개발하기](https://github.com/sejongCreativeSchool/creativeSchool-back/tree/master/week3)
