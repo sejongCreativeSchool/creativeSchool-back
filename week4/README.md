@@ -158,7 +158,7 @@ DynamoDB는 기본키가 존재하는 NoSQL이며, MongoDB에 비해서 key와 i
  
  이를 해결하기 위해서 Docker의 컨테이너는 프로세스를 격리시켜 동작시킵니다.
 
-!(도커)[https://t1.daumcdn.net/cfile/tistory/025F133A51002AA21A]
+![eh](https://t1.daumcdn.net/cfile/tistory/025F133A51002AA21A)
 
 
 
