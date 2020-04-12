@@ -2,7 +2,7 @@
 
 1. AWS EC2 (Elastic Beanstalk)
 2. 리눅스에 NodeJS 세팅
-3. AWS Route53 
+3. AWS Route53 를 통한 도메인 연결
 4. AWS Dynamodb 
 5. Docker
 
@@ -103,4 +103,66 @@ nvm install 12.14.1
 ```
 
 npm과 node가 동시에 설치되었는지 확인해줍니다.
+
+### 3. AWS Route53 를 통한 도메인 연결
+
+위에서 테스트할때 접속했던 퍼블릭 호스트 IP는 인스턴스를 종료했다가 다시 시작하게 되면 변경된다. 이를 유동 IP라고 한다.
+우리는 ```http://booreum.com```에 우리의 서버를 연결시킬 것이기 때문에 아이피가 계속 바뀌면 그때마다 연결해줘야하기 때문에 번거롭다.
+
+그래서 우리는 고정 IP를 할당받아서 Route53에 연결해야한다.
+
+여기서 __DNS(Domain Name System)__ 란?
+도메인 이름을 네트워크 주소로 바꾸거나 그 반대의 변환을 수행할 수 있도록 하기 위한 시스템입니다. 즉, DNS 서비스는 도메인에 연결된 IP 주소를 알려줍니다.
+
+우리는 www.naver.com에 접속하게 되면 아래와 같은 단계가 실행됩니다.
+
+1. 도메인(naver.com)이 가지고 있는 네임서버에 접속
+2. 네임서버에 접속한 도메인(naver.com)과 연결된 IP 정보를 확인
+3. 네임서버에서 도메인(naver.com)과 연결된 IP를 전달
+4. 네임서버에서 전달한 서버의 IP 주소로 접속
+5. 서버의 IP로 연결된 브라우저에 서버의 내용을 출력
+
+먼저 AWS Route53로 접속하여서 Create Host Zone 으로 영역을 생성해줍니다.
+
+생성이후에 도메인을 구매한 홈페이지에 가서 Host Zone에 있는 네임서버를 복사해서 넣어줍니다.
+
+![이미지](https://media.vlpt.us/post-images/minholee_93/a0ccfde0-1bde-11ea-ae9a-2fcf3a6c99dd/image.png)
+
+네임 서버를 설정 한 후에는 다시 Route53으로 돌아와서 A레코드를 도메인으로 생성해준 뒤에 할당받은 정적 IP를 적어주면 정상적으로 연결이됩니다.
+
+### 4. AWS Dynamodb
+
+이번 프로젝트는 NoSQL인 MongoDB를 이용할 예정이지만 AWS에서 제공하는 대표적인 NoSQL인 Dynamodb도 알아보기로 했다.
+
+![SQL](https://i.imgur.com/LpVilxZ.png)
+
+NoSQL과 RDBMS의 가장 큰 차이점은 속성에 대한 자유도 이다. 하지만 모든 것이 속성이 자유로운 것이지 스키마가 자유로운 것이 아니므로 설계에있어서 주의해야한다.
+
+[참고 자료 : (RDBMS와 NoSQL)](https://dzone.com/articles/sql-vs-nosql)
+
+DynamoDB는 기본키가 존재하는 NoSQL이며, MongoDB에 비해서 key와 indexing 이 매우 중요합니다.
+
+클러스터링, 백업정책, 성능상향, 다중리젼 등을 지원하며 AWS가 서포트 해주기때문에 장애를 해결 못할 확률이 희박합니다.
+
+하지만 REST API를 구축하기 위해서 필수인 ORM을 지원하지않아서 쿼리코드를 관리하는 전략을 따로 생성해줘야합니다.
+
+가장 큰 단점으로는 러닝커브가 너무 깊습니다.
+
+### 5. Docker를 통해서 배포하기
+
+이번 파트에서 가장 어려운 파트입니다. Docker 는 그 편의성에 반해서 사용해볼 상황이 나오지않으면 학습만으로는 어려운 점이 많습니다.
+
+먼저 Docker란 컨테이너 기반의 오픈소스 가상화 플랫폼입니다.
+
+ VMware나 VirtualBox는 가상 OS위에 올리는 것이지만 이는 OS를 자체적으로 가지고 있기 때문에 OS를 가상머신 이미지에 포함해야 하고, 배포이미지의 용량이 커지게 된다는 단점이 있습니다.
+ 
+ 이를 해결하기 위해서 Docker의 컨테이너는 프로세스를 격리시켜 동작시킵니다.
+
+!(도커)[https://t1.daumcdn.net/cfile/tistory/025F133A51002AA21A]
+
+
+
+
+
+
 
