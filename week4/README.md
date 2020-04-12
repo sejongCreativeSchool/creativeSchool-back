@@ -1,4 +1,4 @@
-## AWS에 서버를 실제로 배포해보기
+## AWS에 서버를 올리고 Docker를 통해서 배포하기
 
 1. AWS EC2 (Elastic Beanstalk)
 2. 리눅스에 NodeJS 세팅
