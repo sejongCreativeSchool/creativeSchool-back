@@ -13,3 +13,5 @@
 [Week3 :: 책관리 서버 개발하기](https://github.com/sejongCreativeSchool/creativeSchool-back/tree/master/week3)
 
 [Week4 :: AWS서버에 올리고 Docker로 배포하기](https://github.com/sejongCreativeSchool/creativeSchool-back/tree/master/week4)
+
+[Wekk5 :: 유저 결제인증과 서버보안](https://github.com/sejongCreativeSchool/creativeSchool-back/tree/master/week5)
