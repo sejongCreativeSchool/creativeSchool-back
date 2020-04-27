@@ -15,3 +15,5 @@
 [Week4 :: AWS서버에 올리고 Docker로 배포하기](https://github.com/sejongCreativeSchool/creativeSchool-back/tree/master/week4)
 
 [Wekk5 :: 유저 결제인증과 서버보안](https://github.com/sejongCreativeSchool/creativeSchool-back/tree/master/week5)
+
+[Week6 :: DB 도메인 정의와 SSL](https://github.com/sejongCreativeSchool/creativeSchool-back/blob/master/week6/README.md)
